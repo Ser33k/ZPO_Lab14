@@ -39,8 +39,7 @@ public class BallView extends View {
     public void onSensorEvent (SensorEvent event) {
         x = x - (int) event.values[0];
         y = y + (int) event.values[1];
-        //Make sure we do not draw outside the bounds of the view.
-        //So the max values we can draw to are the bounds + the size of the circle
+
         if (x <= 0 + CIRCLE_RADIUS) {
             x = 0 + CIRCLE_RADIUS;
         }
@@ -53,14 +52,16 @@ public class BallView extends View {
         if (y >= viewHeight - CIRCLE_RADIUS) {
             y = viewHeight - CIRCLE_RADIUS;
         }
+
+
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-//        super.onDraw(canvas);
+        super.onDraw(canvas);
         canvas.drawCircle(x,y,CIRCLE_RADIUS, ballPaint);
 //        ballPaint.setTextSize(30);
-//        canvas.drawText("x= "+x+"  y= "+ y, viewWidth/2, viewHeight/2, ballPaint);
+//        canvas.drawText("width= "+viewWidth+"  height= "+ viewHeight, viewWidth/2, viewHeight/2, ballPaint);
 
         invalidate();
 
