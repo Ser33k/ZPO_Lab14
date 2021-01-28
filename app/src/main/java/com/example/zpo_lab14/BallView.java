@@ -37,8 +37,8 @@ public class BallView extends View {
     }
 
     public void onSensorEvent (SensorEvent event) {
-        x = x - (int) event.values[0];
-        y = y + (int) event.values[1];
+        x = x - (int) event.values[0]*5;
+        y = y + (int) event.values[1]*5;
 
         if (x <= 0 + CIRCLE_RADIUS) {
             x = 0 + CIRCLE_RADIUS;
